@@ -1,0 +1,22 @@
+
+-r requirements.txt
+
+# https://github.com/jedie/django-tools/
+django-tools
+
+# https://github.com/jazzband/django-debug-toolbar/
+django-debug-toolbar
+
+flake8
+pydocstyle
+pylint
+Sphinx
+wheel
+twine
+python-creole>=v0.8
+
+tox
+
+pytest
+pytest-django
+pytest-cov

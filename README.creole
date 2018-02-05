@@ -1,0 +1,83 @@
+= Django-CMS 'forms-builder' plugin
+
+Ready to use Django CMS plugin for django-forms-builder.
+
+
+== Django compatibility
+
+|= django-cms-forms-builder |= django cms |= django version      |= python            |
+| >=v0.5.x                   | 3.4.x       | 1.11                 | 3.5, 3.6, pypy3    |
+
+Note: See travis/tox config files for current test matrix
+
+Currently Django CMS v3.5 is not supported, yet.
+It's on the TODO, see: [[https://github.com/jedie/django-cms-forms-builder/issues/10|issues #10]]
+
+
+== run tests
+
+run tests via //py.test// with current python/environment:
+{{{
+$ ./setup.py test
+}}}
+
+run test via //tox// e.g.:
+{{{
+$ ./setup.py tox
+or
+$ tox
+}}}
+
+
+=== run test project
+
+
+You can run the test environment by:
+
+{{{
+$ ./run_test_project_dev_server.sh
+}}}
+or:
+{{{
+$ ./cms_forms_builder_test_project/manage.py run_test_project_dev_server
+}}}
+
+
+The following steps will be executed:
+
+* Create django users if not exists:
+** A django **'superuser'**
+* run migration
+* insert test fixtures (Create Django CMS pages)
+* collect static files
+* run the django development server on localhost
+
+
+To 'reset' the test fixtures, run this:
+{{{
+$ ./cms_forms_builder_test_project/manage.py create_test_data --fresh
+}}}
+
+For a complete fresh database, just remove the sqlite file, e.g.:
+{{{
+$ rm cms_forms_builder_test_project/test_database.sqlite3
+}}}
+
+
+== history
+
+* *dev* [[https://github.com/jedie/django-cms-forms-builder/compare/v0.0.1...master|compare v0.0.1...master]]
+** tbd
+
+== links ==
+
+| Homepage      | https://github.com/jedie/django-cms-forms-builder
+| PyPi.org      | https://pypi.org/project/django-cms-forms-builder/
+| PyPi (legacy) | http://pypi.python.org/pypi/django-cms-forms-builder/
+
+
+== donation ==
+
+* [[https://www.paypal.me/JensDiemer|paypal.me/JensDiemer]]
+* [[https://flattr.com/submit/auto?uid=jedie&url=https%3A%2F%2Fgithub.com%2Fjedie%2Fdjango-cms-forms-builder%2F|Flattr This!]]
+* Send [[http://www.bitcoin.org/|Bitcoins]] to [[https://blockexplorer.com/address/1823RZ5Md1Q2X5aSXRC5LRPcYdveCiVX6F|1823RZ5Md1Q2X5aSXRC5LRPcYdveCiVX6F]]

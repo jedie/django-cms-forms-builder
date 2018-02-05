@@ -1,0 +1,8 @@
+#
+# https://pypi.org/project/django-forms-builder
+# Use wearehoods until https://github.com/stephenmcd/django-forms-builder/pull/214 is merged
+#
+-e git+https://github.com/wearehoods/django-forms-builder.git@multilanguage#egg=django-forms-builder
+
+# https://github.com/jedie/django-cms-tools/
+django_cms_tools

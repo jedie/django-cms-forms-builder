@@ -1,0 +1,8 @@
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.creole
+recursive-include cms_forms_builder *.html *.png *.js *.css *.py
+recursive-include cms_forms_builder_test_project *.py *.html
+recursive-include cms_forms_builder_tests *.py
+recursive-exclude cms_forms_builder_test_project/static *
