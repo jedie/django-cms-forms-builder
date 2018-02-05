@@ -5,7 +5,6 @@ Ready to use Django CMS plugin for django-forms-builder.
 | {{https://travis-ci.org/jedie/django-cms-forms-builder.svg|Build Status on travis-ci.org}} | [[https://travis-ci.org/jedie/django-cms-forms-builder/|travis-ci.org/jedie/django-cms-forms-builder]] |
 | {{https://codecov.io/gh/jedie/django-cms-forms-builder/branch/master/graph/badge.svg|Coverage Status on codecov.io}} | [[https://codecov.io/gh/jedie/django-cms-forms-builder|codecov.io/gh/jedie/django-tools]] |
 | {{https://coveralls.io/repos/jedie/django-cms-forms-builder/badge.svg|Coverage Status on coveralls.io}} | [[https://coveralls.io/r/jedie/django-cms-forms-builder|coveralls.io/r/jedie/django-cms-forms-builder]] |
-| {{https://landscape.io/github/jedie/django-cms-forms-builder/master/landscape.svg|Status on landscape.io}} | [[https://landscape.io/github/jedie/django-cms-forms-builder/master|landscape.io/github/jedie/django-cms-forms-builder/master]] |
 
 
 == Django compatibility
