@@ -2,6 +2,10 @@
 
 Ready to use Django CMS plugin for django-forms-builder.
 
+django-forms-builder is by [[https://github.com/stephenmcd|stephenmcd]]: https://github.com/stephenmcd/django-forms-builder
+
+Currently we use the **multilanguage** branch from [[https://github.com/wearehoods/|wearehoods fork]] until [[https://github.com/stephenmcd/django-forms-builder/pull/214|pull #214]] is merged. See also [[https://github.com/jedie/django-cms-forms-builder/blob/master/cms_forms_builder/requirements.txt|cms_forms_builder/requirements.txt]]
+
 | {{https://travis-ci.org/jedie/django-cms-forms-builder.svg|Build Status on travis-ci.org}} | [[https://travis-ci.org/jedie/django-cms-forms-builder/|travis-ci.org/jedie/django-cms-forms-builder]] |
 | {{https://codecov.io/gh/jedie/django-cms-forms-builder/branch/master/graph/badge.svg|Coverage Status on codecov.io}} | [[https://codecov.io/gh/jedie/django-cms-forms-builder|codecov.io/gh/jedie/django-tools]] |
 | {{https://coveralls.io/repos/jedie/django-cms-forms-builder/badge.svg|Coverage Status on coveralls.io}} | [[https://coveralls.io/r/jedie/django-cms-forms-builder|coveralls.io/r/jedie/django-cms-forms-builder]] |
