@@ -53,6 +53,11 @@ SITE_ID=1
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.abspath(DIRNAME), "static")
 
+# don't load jquery from ajax.googleapis.com, just use django's version:
+# https://django-debug-toolbar.readthedocs.io/en/stable/configuration.html#debug-toolbar-config
+from debug_toolbar.settings import CONFIG_DEFAULTS as DEBUG_TOOLBAR_CONFIG
+DEBUG_TOOLBAR_CONFIG["JQUERY_URL"] = "/static/admin/js/vendor/jquery/jquery.js"
+
 SECRET_KEY = 'This is not secret, but this is only a test project ;)'
 
 ALLOWED_HOSTS=["*"]
