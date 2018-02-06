@@ -40,10 +40,12 @@ INSTALLED_APPS = (
 
     'debug_toolbar', # https://github.com/jazzband/django-debug-toolbar/
 
-    'forms_builder.forms', # https://github.com/stephenmcd/django-forms-builder
+    # Important: 'cms_forms_builder' must be inserted *before* 'forms_builder.forms'
 
     'cms_forms_builder',
     'cms_forms_builder_test_project.test_app',
+
+    'forms_builder.forms', # https://github.com/stephenmcd/django-forms-builder
 )
 
 ROOT_URLCONF = 'cms_forms_builder_test_project.urls'
@@ -56,7 +58,7 @@ STATIC_ROOT = os.path.join(os.path.abspath(DIRNAME), "static")
 # don't load jquery from ajax.googleapis.com, just use django's version:
 # https://django-debug-toolbar.readthedocs.io/en/stable/configuration.html#debug-toolbar-config
 from debug_toolbar.settings import CONFIG_DEFAULTS as DEBUG_TOOLBAR_CONFIG
-DEBUG_TOOLBAR_CONFIG["JQUERY_URL"] = "/static/admin/js/vendor/jquery/jquery.js"
+DEBUG_TOOLBAR_CONFIG["JQUERY_URL"] = "/static/admin/js/vendor/jquery/jquery.min.js"
 
 SECRET_KEY = 'This is not secret, but this is only a test project ;)'
 

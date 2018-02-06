@@ -1,0 +1,70 @@
+{% load i18n sekizai_tags %}
+{% comment %}
+    AJAX form:
+        - Send POST to form.get_absolute_url
+        - insert response result/error after send
+{% endcomment %}
+
+<h3>{{ form.title }}</h3>
+{% if form.intro %}<p id="form_builder_{{ form.pk }}_intro">{{ form.intro }}</p>{% endif %}
+<p id="form_builder_{{ form.pk }}_result"></p>
+{{ form_for_form.media }}
+<form action="{{ form.get_absolute_url }}" style="display:none" method="post" id="form_builder_{{ form.pk }}" {% if form_for_form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+    {% csrf_token %}
+    <div id="form_builder_{{ form.pk }}_fields">
+        {{ form_for_form.as_p }}
+    </div>
+    <input type="submit" value="{{ form.button_text }}">
+</form>
+
+{% addtoblock 'js' %}
+<script src="{{ JQUERY_URL }}" onerror="console.log('ERROR: JQuery not loaded url:[{{ JQUERY_URL }}] !');"></script>
+<script>
+$(document).ready(function() {
+    var form=$("#form_builder_{{ form.pk }}");
+    var fields=$("div#form_builder_{{ form.pk }}_fields");
+    form.on('submit', function(e) {
+        var url = "{{ form.get_absolute_url }}";
+        console.log("Submit to: ["+url+"]...");
+
+        var data=$("#form_builder_{{ form.pk }}").serialize();
+        console.log("submit:"+data);
+        var request = $.ajax({
+            url: url,
+            method: "POST",
+            data: data,
+            dataType: "json"
+        });
+
+        request.always(function( data, textStatus, errorThrown ) {
+            console.log("textStatus:"+textStatus);
+            console.log("errorThrown:"+errorThrown);
+
+            if(textStatus == "success") {
+                // no errors return by django-forms-builder
+                // hide all form elements and display success message
+                $('#form_builder_{{ form.pk }}_title').hide();
+                $('#form_builder_{{ form.pk }}_intro').hide();
+                $('#form_builder_{{ form.pk }}').hide();
+                $('#form_builder_{{ form.pk }}_result').html(data.message);
+            } else {
+                // Display form errors by replace the form
+
+                var responseText=data.responseText;
+                var response_data=$.parseJSON(data.responseText);
+                console.log(response_data);
+
+                var response_form=response_data.form;
+
+                fields.html(response_form);
+            }
+        });
+
+        // prevent default form POST
+        return false
+
+    });
+    form.show();
+});
+</script>
+{% endaddtoblock 'js' %}

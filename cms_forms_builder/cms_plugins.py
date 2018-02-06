@@ -15,26 +15,24 @@ from cms.plugin_pool import plugin_pool
 
 # django-cms-forms-builder Project
 from cms_forms_builder import app_settings, constants
+from cms_forms_builder.app_settings import JQUERY_URL
 from cms_forms_builder.models import FormsBuilderPluginModel
 
 log = logging.getLogger(__name__)
 
 
-#______________________________________________________________________________
-# Form Builder CMS Plugin
-
-
 class FormsBuilderPlugin(CMSPluginBase):
     """
-    django-cms plugin for django-forms-builder:
-        forms_builder.forms.models.Form
+    Plugin to insert one form into a CMS page.
     """
     model = FormsBuilderPluginModel
-    name = _("Forms Builder")
-    render_template = app_settings.FORMS_PLUGIN_TEMPLATE
+
+    name = app_settings.FORMS_PLUGIN_VERBOSE_NAME
     module = app_settings.FORMS_PLUGIN_MODULE_NAME  # For category in "add plugin" list
     require_parent = True if app_settings.FORMS_PLUGIN_PARENT_CLASSES else False
     parent_classes = app_settings.FORMS_PLUGIN_PARENT_CLASSES
+    render_template = app_settings.FORMS_PLUGIN_TEMPLATE
+
     cache = False
 
     def __repr__(self):
@@ -53,6 +51,7 @@ class FormsBuilderPlugin(CMSPluginBase):
             published = form_instance.published(for_user=user)
             if published:
                 context["form_instance"] = form_instance
+                context["JQUERY_URL"] = JQUERY_URL
             else:
                 log.info("Form not published: Hide: %s", form_instance)
         return context

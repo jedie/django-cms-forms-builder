@@ -1,14 +1,23 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+# use jQuery from django:
+JQUERY_URL = "/static/admin/js/vendor/jquery/jquery.min.js"
 
-# Used for cms_forms_builder.cms_plugins.FormsBuilderPlugin.render_template
-FORMS_PLUGIN_TEMPLATE = getattr(settings, "FORMS_PLUGIN_TEMPLATE", "forms/cms_plugin.html")
+#_____________________________________________________________________________
+# cms_forms_builder.cms_plugins.FormsBuilderPlugin
 
-# For Django CMS category in "add plugin" list
-# Used for cms_forms_builder.cms_plugins.FormsBuilderPlugin.module
+# <CMSPlugin>.name
+FORMS_PLUGIN_VERBOSE_NAME = getattr(settings, "FORMS_PLUGIN_VERBOSE_NAME", _("Forms Builder"))
+
+# <CMSPlugin>.module
 FORMS_PLUGIN_MODULE_NAME = getattr(settings, "FORMS_PLUGIN_MODULE_NAME", _("Generic"))
 
-# For Django CMS category in "add plugin" list
-# Used for cms_forms_builder.cms_plugins.FormsBuilderPlugin.parent_classes
+# <CMSPlugin>.parent_classes
 FORMS_PLUGIN_PARENT_CLASSES = getattr(settings, "FORMS_PLUGIN_PARENT_CLASSES", None)
+
+# <CMSPlugin>.render_template
+FORMS_PLUGIN_TEMPLATE = getattr(settings, "FORMS_PLUGIN_TEMPLATE", "forms/cms_plugin.html")
+
+
+

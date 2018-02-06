@@ -1,0 +1,11 @@
+{% load forms_builder_tags sekizai_tags %}
+
+SSS
+
+{{ form_instance.activate_translations }}
+{% render_built_form form_instance %}
+
+{% comment %}
+    render_built_form used template: forms/includes/built_form.html
+    see: forms_builder.forms.templatetags.forms_builder_tags.render_built_form
+{% endcomment %}

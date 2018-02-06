@@ -6,6 +6,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from cms.models import Page
 
+# https://github.com/jedie/django-cms-tools
 from django_cms_tools.fixtures.pages import CmsPageCreator
 
 log = logging.getLogger(__name__)
@@ -20,7 +21,7 @@ def get_permission(model, codename):
 
 class TestPageCreator(CmsPageCreator):
     placeholder_slots = ("content",)
-    # dummy_text_count = 1
+    dummy_text_count = 1
 
     def __init__(self, no, *args, **kwargs):
         self.no = no
@@ -35,17 +36,7 @@ class TestPageCreator(CmsPageCreator):
         return slug
 
     def add_plugins(self, page, placeholder):
-        return # Don't add any plugins
-
-    # def get_add_plugin_kwargs(self, page, no, placeholder, language_code, lang_name):
-    #     """
-    #     Return "content" for create the plugin.
-    #     Called from self.add_plugins()
-    #     """
-    #     return {
-    #         "plugin_type": "PlainTextPlugin", # publisher_test_app.cms_plugins.PlainTextPlugin
-    #         "text": "Dummy plain text plugin no.%i" % self.no
-    #     }
+        return # don't add any plugins
 
 
 def create_test_page(delete_first=False):
